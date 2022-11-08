@@ -1,0 +1,12 @@
+model\Monitoramento.class
+model\Pergunta.class
+controller\App.class
+model\Usuario.class
+model\Slack.class
+model\Componente.class
+model\Monitoramento$1.class
+view\Login.class
+model\Database.class
+model\Computador.class
+view\Home.class
+model\PesquisaSatisfacao.class
