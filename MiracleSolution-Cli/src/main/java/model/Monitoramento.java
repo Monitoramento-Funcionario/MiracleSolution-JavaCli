@@ -60,15 +60,23 @@ public class Monitoramento {
                             disco.getLeituras(), componente.getIdComponente()
                     );
                 }
-            } else if ("MEMORIA".equals(componente.getTipoComponente())) {
+            } else if ("RAM".equals(componente.getTipoComponente())) {
                 Memoria memoria = looca.getMemoria();
                 database.getConnection().update(
+                        "INSERT INTO monitoramento (dado, fkComponente) VALUES (?,?)",
+                        memoria.getEmUso(), componente.getIdComponente()
+                );
+                database.getBackup().update(
                         "INSERT INTO monitoramento (dado, fkComponente) VALUES (?,?)",
                         memoria.getEmUso(), componente.getIdComponente()
                 );
             } else {
                 Processador processador = looca.getProcessador();
                 database.getConnection().update(
+                        "INSERT INTO monitoramento (dado, fkComponente) VALUES (?,?)",
+                        Math.round(processador.getUso()), componente.getIdComponente()
+                );
+                database.getBackup().update(
                         "INSERT INTO monitoramento (dado, fkComponente) VALUES (?,?)",
                         Math.round(processador.getUso()), componente.getIdComponente()
                 );

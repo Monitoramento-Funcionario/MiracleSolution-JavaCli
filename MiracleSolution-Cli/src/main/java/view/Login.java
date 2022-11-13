@@ -31,7 +31,7 @@ public class Login {
         String inputEmail = sc1.nextLine();
         System.out.println("Digite sua senha:");
         String inputSenha = sc1.nextLine();
-        System.err.println("=".repeat(76));
+        System.err.println("=".repeat(77));
 
         List<Usuario> dadosUsuario
                 = usuario.getAuthLogin(inputEmail, inputSenha);

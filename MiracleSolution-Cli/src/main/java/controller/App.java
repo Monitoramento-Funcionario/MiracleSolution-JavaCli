@@ -13,11 +13,4 @@ public class App {
         Login log = new Login();
         log.login();
     }
-//    public static void main(String[] args) throws IOException, InterruptedException {
-//
-//        JSONObject json = new JSONObject();
-//        json.put("text", "Hello world");
-//
-//        Slack.sendMessage(json);
-//    }
 }

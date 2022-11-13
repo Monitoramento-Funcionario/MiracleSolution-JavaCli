@@ -80,6 +80,10 @@ public class Componente {
                 "INSERT INTO componente ( tipoComponente, velocidade, processadorLogico, fkComputador, nome, nucleo, unidadeMedida ) VALUES (?,?,?,?,?,?,?)",
                 "CPU", processador.getFrequencia(), processador.getNumeroCpusLogicas(), idComputador, processador.getNome(), processador.getNumeroCpusFisicas(), "GHZ"
         );
+        database.getBackup().update(
+                "INSERT INTO componente ( tipoComponente, velocidade, processadorLogico, fkComputador, nome, nucleo, unidadeMedida ) VALUES (?,?,?,?,?,?,?)",
+                "CPU", processador.getFrequencia(), processador.getNumeroCpusLogicas(), idComputador, processador.getNome(), processador.getNumeroCpusFisicas(), "GHZ"
+        );
 
         for (Disco discos : disco) {
             database.getConnection().update(
@@ -89,6 +93,10 @@ public class Componente {
         }
 
         database.getConnection().update(
+                "INSERT INTO componente ( tipoComponente, capacidade, fkComputador, unidadeMedida ) VALUES (?,?,?,?)",
+                "RAM", memoria.getTotal(), idComputador, "GB"
+        );
+        database.getBackup().update(
                 "INSERT INTO componente ( tipoComponente, capacidade, fkComputador, unidadeMedida ) VALUES (?,?,?,?)",
                 "RAM", memoria.getTotal(), idComputador, "GB"
         );

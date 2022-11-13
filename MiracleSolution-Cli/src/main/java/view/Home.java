@@ -8,14 +8,12 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Computador;
 import model.Monitoramento;
-import model.PesquisaSatisfacao;
 import model.Usuario;
 
 public class Home {
 
     private Integer idUsuario;
     private String nomeUsuario;
-    private Boolean WiredMode;
 
     public Home(Integer idUsuario) {
         Monitoramento monitoramento = new Monitoramento();
@@ -25,13 +23,10 @@ public class Home {
         nomeUsuario = usuario.getUserLocalDataForId(idUsuario).getNomeUsuario();
 
         this.idUsuario = idUsuario;
-        WiredMode = false;
-//        iniciando munitoramento
+//      iniciando munitoramento
         monitoramento.setTimeOut(idUsuario);
         menu(nomeUsuario);
     }
-
-    PesquisaSatisfacao pesquisaSatisfacao = new PesquisaSatisfacao();
 
     private void menu(String nomeUsuario) {
         Scanner sc = new Scanner(System.in);
@@ -40,6 +35,6 @@ public class Home {
         System.err.printf("\nOla, %s\n", nomeUsuario);
         System.out.println("Esta maquina esta sendo monitorado!!");
 
-        System.err.println("=".repeat(78));
+        System.err.println("=".repeat(77));
     }
 }

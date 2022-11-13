@@ -55,12 +55,14 @@ public class Computador {
         Sistema sistema = new Sistema();
         Componente componente = new Componente();
 
-        if (getComputadorLocalData(idUsuario) != null
-                && getComputadorLocalData(idUsuario).isEmpty()) {
+        if (getComputadorLocalData(idUsuario) != null && getComputadorLocalData(idUsuario).isEmpty()) {
             database.getConnection().update(
-                    "INSERT INTO computador ( ipComputador, sistemaOperacional, arquitetura, fkUsuario, marca, modeloComputador, fabricante ) VALUES (?,?,?,?,?,?,?)",
-                    getIpComputadorLocalData(), sistema.getSistemaOperacional(),
-                    sistema.getArquitetura(), idUsuario, "Dell", "Notebook Inspiron", "Michael Dell"
+                    "INSERT INTO computador ( ipComputador, sistemaOperacional, arquitetura, fkUsuario) VALUES (?,?,?,?)",
+                    getIpComputadorLocalData(), sistema.getSistemaOperacional(), sistema.getArquitetura(), idUsuario
+            );
+            database.getBackup().update(
+                    "INSERT INTO computador ( ipComputador, sistemaOperacional, arquitetura, fkUsuario) VALUES (?,?,?,?)",
+                    getIpComputadorLocalData(), sistema.getSistemaOperacional(), sistema.getArquitetura(), idUsuario
             );
             componente.setRegisterComponente(
                     getComputadorLocalData(idUsuario).get(0).getIdComputador());
@@ -75,8 +77,7 @@ public class Computador {
         }
 
         return database.getConnection().query(
-                "SELECT * FROM computador WHERE ipComputador = '"
-                + getIpComputadorLocalData() + "' AND fkUsuario = '" + idUsuario + "'",
+                "SELECT * FROM computador WHERE ipComputador = '" + getIpComputadorLocalData() + "' AND fkUsuario = '" + idUsuario + "'",
                 new BeanPropertyRowMapper(Computador.class)
         );
     }
