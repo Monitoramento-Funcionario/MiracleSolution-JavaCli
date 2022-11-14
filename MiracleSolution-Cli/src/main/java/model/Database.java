@@ -17,7 +17,7 @@ public class Database {
 
         //CONEXÃO PARA MYSQL
         backupDataSource​.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        backupDataSource​.setUrl("jdbc:mysql://localhost:3306/Healf");
+        backupDataSource​.setUrl("jdbc:mysql://172.17.0.2:3306/miraclesolutions");
         backupDataSource​.setUsername("root");
         backupDataSource​.setPassword("urubu100");
 
