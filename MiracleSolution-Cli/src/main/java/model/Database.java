@@ -17,7 +17,7 @@ public class Database {
 
         //CONEXÃO PARA MYSQL
         backupDataSource​.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        backupDataSource​.setUrl("jdbc:mysql://172.17.0.2:3306/miraclesolutions?autoReconnect=true?useSSL=false");
+        backupDataSource​.setUrl("jdbc:mysql://172.17.0.2:3306/miraclesolutions?autoReconnect=true&useSSL=false");
         backupDataSource​.setUsername("root");
         backupDataSource​.setPassword("urubu100");
         this.backup = new JdbcTemplate(backupDataSource);
