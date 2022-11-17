@@ -60,10 +60,6 @@ public class Computador {
                     "INSERT INTO computador ( ipComputador, sistemaOperacional, arquitetura, fkUsuario) VALUES (?,?,?,?)",
                     getIpComputadorLocalData(), sistema.getSistemaOperacional(), sistema.getArquitetura(), idUsuario
             );
-/*            database.getBackup().update(
-                    "INSERT INTO computador ( ipComputador, sistemaOperacional, arquitetura, fkUsuario) VALUES (?,?,?,?)",
-                    getIpComputadorLocalData(), sistema.getSistemaOperacional(), sistema.getArquitetura(), idUsuario
-            );*/
             componente.setRegisterComponente(
                     getComputadorLocalData(idUsuario).get(0).getIdComputador());
 

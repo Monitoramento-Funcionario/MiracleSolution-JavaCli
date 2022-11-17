@@ -29,7 +29,11 @@ public class Slack {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(String.format("Status: %s", response.statusCode()));
         System.out.println(String.format("Response: %s", response.body()));
+
     }
-    
-    
+
+    public void sendAlerta(String nomeUsuario, String ip) {
+
+    }
+
 }
