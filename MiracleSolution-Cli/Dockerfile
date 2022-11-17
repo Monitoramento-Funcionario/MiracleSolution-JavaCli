@@ -1,4 +1,4 @@
-FROM java:11
+FROM java:8
 WORKDIR /target/
 ADD MiracleSolution-CLI-1.0-SNAPSHOT-jar-with-dependencies.jar MiracleSolution-CLI-1.0-SNAPSHOT-jar-with-dependencies.jar
 EXPOSE 8080
