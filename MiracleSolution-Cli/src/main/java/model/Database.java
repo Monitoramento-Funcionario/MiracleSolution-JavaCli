@@ -20,6 +20,7 @@ public class Database {
         backupDataSource​.setUrl("jdbc:mysql://localhost:3306/miraclesolutions");
         backupDataSource​.setUsername("root");
         backupDataSource​.setPassword("urubu100");
+        this.backup = new JdbcTemplate(backupDataSource);
 
         // CONEXÃO PARA AZURE
         dataSource​.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
