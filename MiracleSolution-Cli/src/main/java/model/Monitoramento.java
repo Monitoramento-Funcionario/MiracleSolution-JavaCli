@@ -46,9 +46,7 @@ public class Monitoramento {
         Componente componentes = new Componente();
         Computador computador = new Computador();
 
-        for (Componente componente : componentes.getComponenteLocalData(
-                idUsuario, computador.getIpComputadorLocalData())) {
-
+        for (Componente componente : componentes.getComponenteLocalData(idUsuario, computador.getIpComputadorLocalData())) {
             if ("DISCO".equals(componente.getTipoComponente())) {
                 DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
 
@@ -59,25 +57,37 @@ public class Monitoramento {
                             "INSERT INTO monitoramento (dado, fkComponente) VALUES (?,?)",
                             disco.getLeituras(), componente.getIdComponente()
                     );
+                    database.getBackup().update(
+                            "INSERT INTO Monitoramento (dado, fkComponente) VALUES (?,?)",
+                            disco.getLeituras(), componente.getIdComponente()
+                    );
                 }
             } else if ("RAM".equals(componente.getTipoComponente())) {
                 Memoria memoria = looca.getMemoria();
+                
+                Double emUso = (double) memoria.getEmUso();
+                Double total = (double) memoria.getTotal();
+                
+                Long porcentagem = Math.round((emUso/total) * 100);
+                
                 database.getConnection().update(
                         "INSERT INTO monitoramento (dado, fkComponente) VALUES (?,?)",
-                        memoria.getEmUso(), componente.getIdComponente()
+                        porcentagem, componente.getIdComponente()
                 );
                 database.getBackup().update(
-                        "INSERT INTO monitoramento (dado, fkComponente) VALUES (?,?)",
+                        "INSERT INTO Monitoramento (dado, fkComponente) VALUES (?,?)",
                         memoria.getEmUso(), componente.getIdComponente()
                 );
             } else {
                 Processador processador = looca.getProcessador();
+                
+                System.out.println("Processador: " + processador.getUso());
                 database.getConnection().update(
                         "INSERT INTO monitoramento (dado, fkComponente) VALUES (?,?)",
                         Math.round(processador.getUso()), componente.getIdComponente()
                 );
                 database.getBackup().update(
-                        "INSERT INTO monitoramento (dado, fkComponente) VALUES (?,?)",
+                        "INSERT INTO Monitoramento (dado, fkComponente) VALUES (?,?)",
                         Math.round(processador.getUso()), componente.getIdComponente()
                 );
             }

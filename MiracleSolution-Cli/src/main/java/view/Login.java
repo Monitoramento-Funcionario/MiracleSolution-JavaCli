@@ -4,6 +4,7 @@
  */
 package view;
 
+import java.io.IOException;
 import view.Home;
 import java.util.List;
 import java.util.Scanner;
@@ -23,7 +24,7 @@ public class Login {
         System.out.println("Miracle Solutions");
     }
 
-    public void login() {
+    public void login(){
         Scanner sc1 = new Scanner(System.in);
         Usuario usuario = new Usuario();
         System.err.println("=".repeat(30) + "Miracle-Solutions" + "=".repeat(30));
@@ -37,7 +38,7 @@ public class Login {
                 = usuario.getAuthLogin(inputEmail, inputSenha);
 
         if (dadosUsuario.isEmpty()) {
-            System.out.println("Email ou Senha Inválidos"); 
+            System.out.println("Email ou Senha Inválidos");
         } else {
             System.out.println("Aguarde alguns segundos!");
             Computador computador = new Computador();

@@ -18,7 +18,7 @@ public class Home {
     private Integer idUsuario;
     private String nomeUsuario;
 
-    public Home(Integer idUsuario) throws IOException, InterruptedException {
+    public Home(Integer idUsuario) {
         Monitoramento monitoramento = new Monitoramento();
         Usuario usuario = new Usuario();
         Slack slk = new Slack();
@@ -30,7 +30,7 @@ public class Home {
         this.idUsuario = idUsuario;
 //      iniciando munitoramento
         monitoramento.setTimeOut(idUsuario);
-        slk.sendAlerta(nomeUsuario, new Computador().getIpComputadorLocalData());
+//        slk.sendAlerta(nomeUsuario, new Computador().getIpComputadorLocalData());
         menu(nomeUsuario);
     }
 
