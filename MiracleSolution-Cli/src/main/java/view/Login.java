@@ -8,9 +8,10 @@ import java.io.IOException;
 import view.Home;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Computador;
 import model.Usuario;
-
 
 /**
  *
@@ -21,22 +22,22 @@ public class Login {
     private Integer idUsuario;
 
     public Login() {
-        System.out.println("Miracle Solutions");
-    }
-
-    public void login(){
-        Scanner sc1 = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         Usuario usuario = new Usuario();
+
         System.err.println("=".repeat(30) + "Miracle-Solutions" + "=".repeat(30));
+
         System.out.println("Digite seu email:");
-        String inputEmail = sc1.nextLine();
+        String inputEmail = sc.nextLine();
+
         System.out.println("Digite sua senha:");
-        String inputSenha = sc1.nextLine();
+        String inputSenha = sc.nextLine();
+
         System.err.println("=".repeat(77));
 
         List<Usuario> dadosUsuario
                 = usuario.getAuthLogin(inputEmail, inputSenha);
-
+        sc.close();
         if (dadosUsuario.isEmpty()) {
             System.out.println("Email ou Senha Inválidos");
         } else {

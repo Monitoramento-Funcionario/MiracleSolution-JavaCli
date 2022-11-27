@@ -16,17 +16,17 @@ public class Database {
         BasicDataSource backupDataSource = new BasicDataSource();
 
         //CONEXÃO PARA MYSQL
-        backupDataSource​.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        backupDataSource​.setUrl("jdbc:mysql://172.17.0.2:3306/miraclesolutions?useSSL=false");
-        backupDataSource​.setUsername("root");
-        backupDataSource​.setPassword("urubu100");
+        backupDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        backupDataSource.setUrl("jdbc:mysql://172.17.0.2:3306/miraclesolutions");
+        backupDataSource.setUsername("root");
+        backupDataSource.setPassword("urubu100");
         this.backup = new JdbcTemplate(backupDataSource);
 
         // CONEXÃO PARA AZURE
         dataSource​.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        dataSource​.setUrl("jdbc:sqlserver://miraclesolutions.database.windows.net:1433;"
-                + "database=miraclesolutions;encrypt=true;trustServerCertificate=false;"
-                + "hostNameInCertificate=*.database.windows.net;");
+        dataSource​.setUrl("jdbc:sqlserver://miraclesolutions.database.windows.net:"
+                + "1433;database=miraclesolutions;encrypt=true;trustServerCertificate=false"
+                + ";hostNameInCertificate=*.database.windows.net;");
         dataSource​.setUsername("admin-projeto-miraclesolutions");
         dataSource​.setPassword("#Gfgrupo8");
         this.connection = new JdbcTemplate(dataSource);

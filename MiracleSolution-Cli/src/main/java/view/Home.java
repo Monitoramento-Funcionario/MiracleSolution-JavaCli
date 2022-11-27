@@ -30,7 +30,7 @@ public class Home {
         this.idUsuario = idUsuario;
 //      iniciando munitoramento
         monitoramento.setTimeOut(idUsuario);
-//        slk.sendAlerta(nomeUsuario, new Computador().getIpComputadorLocalData());
+        slk.sendAlerta(nomeUsuario, new Computador().getIpComputadorLocalData());
         menu(nomeUsuario);
     }
 

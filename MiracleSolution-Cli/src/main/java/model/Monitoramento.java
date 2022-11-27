@@ -81,7 +81,7 @@ public class Monitoramento {
             } else {
                 Processador processador = looca.getProcessador();
                 
-                System.out.println("Processador: " + processador.getUso());
+//                System.out.println("Processador: " + processador.getUso());
                 database.getConnection().update(
                         "INSERT INTO monitoramento (dado, fkComponente) VALUES (?,?)",
                         Math.round(processador.getUso()), componente.getIdComponente()
