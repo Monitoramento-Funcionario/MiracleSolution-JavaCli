@@ -5,6 +5,7 @@ import com.github.britooo.looca.api.group.discos.Disco;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
+import controller.Log;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -64,12 +65,12 @@ public class Monitoramento {
                 }
             } else if ("RAM".equals(componente.getTipoComponente())) {
                 Memoria memoria = looca.getMemoria();
-                
+
                 Double emUso = (double) memoria.getEmUso();
                 Double total = (double) memoria.getTotal();
-                
-                Long porcentagem = Math.round((emUso/total) * 100);
-                
+
+                Long porcentagem = Math.round((emUso / total) * 100);
+
                 database.getConnection().update(
                         "INSERT INTO monitoramento (dado, fkComponente) VALUES (?,?)",
                         porcentagem, componente.getIdComponente()
@@ -80,7 +81,7 @@ public class Monitoramento {
                 );
             } else {
                 Processador processador = looca.getProcessador();
-                
+
 //                System.out.println("Processador: " + processador.getUso());
                 database.getConnection().update(
                         "INSERT INTO monitoramento (dado, fkComponente) VALUES (?,?)",
@@ -105,6 +106,9 @@ public class Monitoramento {
                         setDadoAtual(idUsuario);
                     } catch (Exception e) {
                         System.out.println("Problemas ao obter dados da máquina erro: " + e);
+                        Log logerro = new Log();
+                        Computador computador = new Computador();
+                        logerro.write(e, idUsuario, computador.getIpComputadorLocalData());
                     }
                 }
             };

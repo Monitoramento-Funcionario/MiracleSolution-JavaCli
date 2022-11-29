@@ -1,0 +1,16 @@
+ID do Usuário: 1
+IP da Máquina: 192.168.1.2
+Erros: 
+........................................
+Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+[Ljava.lang.StackTraceElement;@5b8dc1cc
+........................................
+Horário: 16:50:53
+Últimos registros:
+........................................
+Último registro do Processador: 10%
+Último registro da Memória RAM: 68%
+........................................
+
